@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('plantilla');
 });
+
+Route::post('/productoAgregar','App\Http\Controllers/ProductsController@guardar')->name('AgregarProducto'); 
+//Route::post('/','App\Http\Controllers/ProductsController@eliminar');
+//Route::post('/','App\Http\Controllers/ProductsController@editar');
+

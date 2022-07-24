@@ -87,7 +87,7 @@
 
             <div class="modal-content">
 
-                <form method="">
+                <form method="post" action="{{ url('/') }}">
 
                     <div class="modal-body">
 
@@ -161,7 +161,7 @@
                     <div class="modal-footer">
 
                         <button type="submit" class="btn btn-primary ">Crear</button>
-                        
+                
                         <button type="button" class="btn btn-danger" data-dismiss='modal'>Cancelar</button>
 
                     </div>
@@ -180,7 +180,7 @@
 
             <div class="modal-content">
 
-                <form method="">
+                <form method="POST">
 
                     <div class="modal-body">
 
