@@ -87,7 +87,7 @@
 
             <div class="modal-content">
 
-                <form method="post" action="{{ url('/') }}">
+                <form method="POST" action="{{ url('/productoAgregar') }}">
 
                     <div class="modal-body">
 
@@ -160,10 +160,11 @@
 
                     <div class="modal-footer">
 
+                    <a href= " {{ route('GuardarProducto') }}">      
                         <button type="submit" class="btn btn-primary ">Crear</button>
-                
+                       
                         <button type="button" class="btn btn-danger" data-dismiss='modal'>Cancelar</button>
-
+                        </a>
                     </div>
 
                 </form>
