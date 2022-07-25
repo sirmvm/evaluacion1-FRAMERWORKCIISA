@@ -82,76 +82,50 @@
     </div>
 
     <div class="modal fade " id="CrearProducto" >
-
         <div class="modal-dialog">
-
             <div class="modal-content">
-
                 <form method="POST" action="{{ url('/productoAgregar') }}">
-
                     <div class="modal-body">
-
                         <div class="box-body">
 
                             <div class="form-group">
-
                                 <h4>Código producto:</h4>
-                                <input type="text" class="form-control input-md" name="marca" required=""
-                                value="">
-                                
+                                <input type="text" class="form-control input-md" name="codigo" id="codigo" required="">                                
                             </div>
-
+                            
                             <div class="form-group">
-
                                 <h4>Nombre</h4>
-                                <input type="text" class="form-control input-md" name="modelo" required="">
-                                
+                                <input type="text" class="form-control input-md" name="nombre" id="nombre" required="">                  
                             </div>
 
                             <div class="form-group">
-
                                 <h4>Categoría</h4>
-                                <input type="text" class="form-control input-md" name="anio" required="">
-                                
+                                <input type="text" class="form-control input-md" name="categoria" id="categoria" required="">        
                             </div>
 
                             <div class="form-group">
-
                                 <h4>Sucursal:</h4>
-
-                                <select class="form-control input-md" name="" required="">
-
-                                    <option value="">Seleccionar...</option>
-                                    
-                                    <option value="Sucursal-1">Sucursal 1</option>
-                                    
+                                <select class="form-control input-md" name="sucursal" id="sucursal" required="">
+                                    <option disabled>Seleccionar...</option>        
+                                    <option value="Sucursal-1">Sucursal 1</option>        
                                     <option value="Sucursal-2">Sucursal 2</option>
-
                                     <option value="Sucursal-3">Sucursal 3 </option>
-
                                 </select>
-
                             </div>
 
                             <div class="form-group">
-
                                 <h4>Descripción</h4>
                                 <input type="text" class="form-control input-md" name="descripcion" required="">
-                                
                             </div>
 
                             <div class="form-group">
-
                                 <h4>Cantidad</h4>
-                                <input type="number" class="form-control input-md" name="cantidad" required="">
-                                
+                                <input type="number" class="form-control input-md" name="cantidad" required="">                                
                             </div>
 
                             <div class="form-group">
-
                                 <h4>Precio venta</h4>
-                                <input type="number" class="form-control input-md" name="precio-venta" required="">
-                                
+                                <input type="number" class="form-control input-md" name="precio-venta" required="">                               
                             </div>
 
                         </div>
@@ -160,11 +134,11 @@
 
                     <div class="modal-footer">
 
-                    <a href= " {{ route('GuardarProducto') }}">      
-                        <button type="submit" class="btn btn-primary ">Crear</button>
+                   <!-- <a href= " {{ route('GuardarProducto') }}"> -->      
+                        <button type="submit" class="btn btn-primary" onclick=" {{ route('GuardarProducto') }}">Crear</button>
                        
                         <button type="button" class="btn btn-danger" data-dismiss='modal'>Cancelar</button>
-                        </a>
+                    <!--    </a> -->
                     </div>
 
                 </form>

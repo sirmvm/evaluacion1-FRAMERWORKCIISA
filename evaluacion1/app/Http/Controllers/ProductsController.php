@@ -14,9 +14,13 @@ class ProductsController extends Controller
 
 
 	public function guardar(Request $request){
-		return "Código producto: ". $request->input("codigo").  ",   Nombre: ". $request->input("nombre").  "   Categoria: ". $request->input("categoria").  "    Sucursal: ". $request->input("sucursal").  "    Descripción: ". $request->input("descripcion").  "  Cantidad: ". $request->input("cantidad"). "   Precio venta: ". $request->input("precio-venta");		
-		
+		return 
+		"	Código producto:". $request->input("codigo").  
+		"   Nombre: 		". $request->input("nombre").  
+		"   Categoria: 		". $request->input("categoria").  
+		"   Sucursal: 		". $request->input("sucursal").  
+		"   Descripción: 	". $request->input("descripcion").  
+		"	Cantidad: 		". $request->input("cantidad"). 
+		"   Precio venta: 	". $request->input("precio-venta");		
 	}
 }
-
-

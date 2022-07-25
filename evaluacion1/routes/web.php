@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('plantilla');
 });
 
-Route::post('/productoAgregar','App\Http\Controllers/ProductsController@guardar')->name('GuardarProducto'); 
+Route::post('/productoAgregar','App\Http\Controllers\ProductsController@guardar')->name('GuardarProducto'); 
 //Route::post('/','App\Http\Controllers/ProductsController@eliminar');
 //Route::post('/','App\Http\Controllers/ProductsController@editar');
-
