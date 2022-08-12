@@ -133,10 +133,8 @@
                     </div>
 
                     <div class="modal-footer">
-
                    <!-- <a href= " {{ route('GuardarProducto') }}"> -->      
                         <button type="submit" class="btn btn-primary" onclick=" {{ route('GuardarProducto') }}">Crear</button>
-                       
                         <button type="button" class="btn btn-danger" data-dismiss='modal'>Cancelar</button>
                     <!--    </a> -->
                     </div>
