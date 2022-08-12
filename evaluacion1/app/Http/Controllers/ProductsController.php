@@ -12,7 +12,6 @@ class ProductsController extends Controller
 	public function delete(){}
 	public function update(){}
 
-
 	public function guardar(Request $request){
 		return 
 		"	Código producto:". $request->input("codigo").  
