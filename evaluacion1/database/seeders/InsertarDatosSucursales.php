@@ -18,8 +18,6 @@ class InsertarDatosSucursales extends Seeder
             [
                 'nombre_sucursal' => "Buenos Vecinos",
                 'dirección' => 'En la montaña 4512'
-                
-
             ]
             ));
 

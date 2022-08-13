@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class InsertarDatosStock extends Seeder
+class InsertarDatosStocks extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,11 +14,13 @@ class InsertarDatosStock extends Seeder
      */
     public function run()
     {
-        DB::table('stock')->insert(array(
+        DB::table('stocks')->insert(array(
             [
+                'codigo_producto' => 1,
                 'cantidad' => 5,
-                'sucursal_id'=> 1
-
+                'precio' => 600,
+                'sucursale_id'=> 1,
+                'producto_id' => 1
             ]
             ));
 

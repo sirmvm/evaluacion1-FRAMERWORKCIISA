@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('plantilla');
-});
-
-Route::post('/productoAgregar','App\Http\Controllers\ProductsController@guardar')->name('GuardarProducto'); 
+///////////oute::get('/', function () {
+///////////   return view('plantilla');
+///////////);
+///////////
+///////////oute::post('/productoAgregar','App\Http\Controllers\ProductsController@guardar')->name('GuardarProducto'); 
 //Route::post('/','App\Http\Controllers\ProductsController@eliminar');
 //Route::post('/','App\Http\Controllers\ProductsController@editar');
+
+
+Route::get('/', 'App\Http\Controllers\StocksController@index');
+Route::resource('stocks', 'App\Http\Controllers\StocksController');
