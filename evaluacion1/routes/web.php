@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\SucursalesController;
+use App\Http\Controllers\StocksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-///////////oute::get('/', function () {
-///////////   return view('plantilla');
-///////////);
-///////////
-///////////oute::post('/productoAgregar','App\Http\Controllers\ProductsController@guardar')->name('GuardarProducto'); 
-//Route::post('/','App\Http\Controllers\ProductsController@eliminar');
-//Route::post('/','App\Http\Controllers\ProductsController@editar');
 
-
+Route::get('/', 'App\Http\Controllers\CategoriasController@index');
+Route::get('/', 'App\Http\Controllers\ProductosController@index');
+Route::get('/', 'App\Http\Controllers\SucursalesController@index');
 Route::get('/', 'App\Http\Controllers\StocksController@index');
-Route::resource('stocks', 'App\Http\Controllers\StocksController');
+Route::resource('categorias', 'App\Http\Controllers\CategoriasController');
+Route::resource('productos', 'App\Http\Controllers\ProductosController');
+Route::resource('sucursales', 'App\Http\Controllers\SucursalesController');
+Route::resource('stock', 'App\Http\Controllers\StocksController');

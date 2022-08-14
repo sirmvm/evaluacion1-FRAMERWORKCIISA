@@ -16,9 +16,24 @@ class InsertarDatosProductos extends Seeder
     {
         DB::table('productos')->insert(array(
             [
+                'codigo_producto' => '0011',
                 'nombre_producto' => 'Pasta de Dientes',
-                'descripción'=> 'Pasta en tubo para laverse los dientes',
-                'categoria_id'=> 1,
+                'categoria' => 'Higiene',
+                'sucursal' => 'Santiago',
+                'descripcion' => 'Pasta de Dientes',
+                'cantidad'=> '45',
+                'precio'=> '990',
+                'categoria_id'=> 1
+            ],
+            [
+                'codigo_producto' => '0011',
+                'nombre_producto' => 'Pasta magica',
+                'categoria' => 'Higiene',
+                'sucursal' => 'Santiago',
+                'descripcion' => 'Pasta de magica',
+                'cantidad'=> '85',
+                'precio'=> '1990',
+                'categoria_id'=> 2
             ]
             ));
 

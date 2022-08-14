@@ -1,3 +1,8 @@
+@extends('plantilla')
+@section('title', 'Mis Productos')
+
+@section('content')
+
     <div class="content-wrapper">
         
         <section class="content-header">
@@ -38,36 +43,26 @@
                     
                     <tbody>
 
-                            <tr>
-                                <td>No registrado</td>
+                    @foreach($productos as $producto)
+                        <tr>
+                            <td>{{ $producto -> id}}</td>
 
-                                <td>No registrado</td>
+                            <td>{{ $producto -> nombre_producto }}</td>
+            
+                            <td>
 
-                                <td>No registrado</td>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#EditarProductos">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                
+                                <button class="btn btn-danger Eliminar">
+                                <i class="fa fa-trash"></i>
+                                </button>
 
-                                <td>No registrado</td>
-                               
-                                <td>No registrado</td>
+                            </td>
 
-                                <td>No registrado</td>
-
-                                <td>No registrado</td>
-
-                                <td>No registrado</td>
-                                
-                                <td>
-
-                                    <button class="btn btn-success" data-toggle="modal" data-target="#EditarProducto">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                    
-                                    <button class="btn btn-danger EliminarProducto">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-
-                                </td>
-
-                            </tr>
+                        </tr>
+                    @endforeach
 
                     </tbody>
 
@@ -84,7 +79,7 @@
     <div class="modal fade " id="CrearProducto" >
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="POST" action="{{ url('/productoAgregar') }}">
+                <form method="POST" action="">
                     <div class="modal-body">
                         <div class="box-body">
 
@@ -100,16 +95,31 @@
 
                             <div class="form-group">
                                 <h4>Categoría</h4>
-                                <input type="text" class="form-control input-md" name="categoria" id="categoria" required="">        
+                                <select name="id_sucursal" class="form-control input-lg" require="">
+
+                                <option value=""> Seleccionar... </option>
+                                
+                                @foreach($categorias as $categoria)
+                                
+                                    <option value="{{ $categoria -> id }}">{{ $categoria -> nombre}}</option>
+                                
+                                @endforeach
+
+                                </select>       
                             </div>
 
                             <div class="form-group">
-                                <h4>Sucursal:</h4>
-                                <select class="form-control input-md" name="sucursal" id="sucursal" required="">
-                                    <option disabled>Seleccionar...</option>        
-                                    <option value="Sucursal-1">Sucursal 1</option>        
-                                    <option value="Sucursal-2">Sucursal 2</option>
-                                    <option value="Sucursal-3">Sucursal 3 </option>
+                                <h4>Sucursales:</h4>
+                                <select name="id_sucursal" class="form-control input-lg" require="">
+
+                                <option value=""> Seleccionar... </option>
+                                
+                                @foreach($sucursales as $sucursal)
+                                
+                                    <option value="{{ $sucursal -> id }}">{{ $sucursal -> nombre_sucursal }}</option>
+                                
+                                @endforeach
+
                                 </select>
                             </div>
 
@@ -133,10 +143,10 @@
                     </div>
 
                     <div class="modal-footer">
-                   <!-- <a href= " {{ route('GuardarProducto') }}"> -->      
-                        <button type="submit" class="btn btn-primary" onclick=" {{ route('GuardarProducto') }}">Crear</button>
+                   <a href= "">      
+                        <button type="submit" class="btn btn-primary" >Crear</button>
                         <button type="button" class="btn btn-danger" data-dismiss='modal'>Cancelar</button>
-                    <!--    </a> -->
+                    </a>
                     </div>
 
                 </form>
@@ -200,4 +210,4 @@
 
         </div>
 
-    </div>
+@stop

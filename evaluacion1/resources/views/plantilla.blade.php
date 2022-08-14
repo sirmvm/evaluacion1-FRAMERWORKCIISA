@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin-Store</title>
+  <title>Laravel - @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -49,22 +49,20 @@
 
     @include('modulos.menu')
 
-    @include('modulos.productos')
+    @section('content')
+    @show
 
-    <footer class="main-footer">
+</div>
+
+<footer class="main-footer">
       <div class="pull-right">
         <b>Versión</b>
-          "1.0.0"
+          "2.0.0"
       </div>
       <strong>
         <p>Desarrollado por:  Grupo 6 - Framework - Sección 50 - CIISA 2022</p>
       </strong>
-    </footer>
-
-</div>
-<!-- ./wrapper -->
-
-    
+</footer>
 
 
 <!-- jQuery 3 -->
@@ -109,11 +107,11 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script type="text/javascript">
-$('.table').on('click', '.EliminarProducto', function(){
+$('.table').on('click', '.Eliminar', function(){
 
 Swal.fire({
 
-  title: '¿Seguro que deseas eliminar el producto ?',
+  title: '¿Seguro que deseas eliminar este items ?',
   icon: 'warning',
   showCancelButton: true,
   cancelButtonText: 'Cancelar',

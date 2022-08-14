@@ -17,7 +17,11 @@ class InsertarDatosSucursales extends Seeder
         DB::table('sucursales')->insert(array(
             [
                 'nombre_sucursal' => "Buenos Vecinos",
-                'dirección' => 'En la montaña 4512'
+                'dirección' => 'La montaña 4512'
+            ],
+            [
+                'nombre_sucursal' => "Santiago",
+                'dirección' => '10 de julio #12345'
             ]
             ));
 
