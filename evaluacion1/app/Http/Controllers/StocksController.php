@@ -41,4 +41,5 @@ class StocksController extends Controller
             'stocks' => $stocks
         ]);
     }
+     
 }
