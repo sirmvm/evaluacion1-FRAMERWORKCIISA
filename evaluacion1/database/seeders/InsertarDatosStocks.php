@@ -19,8 +19,20 @@ class InsertarDatosStocks extends Seeder
                 'codigo_producto' => 1,
                 'cantidad' => 5,
                 'precio' => 600,
-                'sucursale_id'=> 1,
+                'sucursal_id'=> 1,
                 'producto_id' => 1
+            ],[
+                'codigo_producto' => 3,
+                'cantidad' => 90,
+                'precio' => 1600,
+                'sucursal_id'=> 2,
+                'producto_id' => 3
+            ],[
+                'codigo_producto' => 7,
+                'cantidad' => 190,
+                'precio' => 31600,
+                'sucursal_id'=> 3,
+                'producto_id' => 2
             ]
             ));
 

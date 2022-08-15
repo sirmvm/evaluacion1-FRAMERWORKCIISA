@@ -8,7 +8,7 @@ use App\Models\Categoria;
 class CategoriasController extends Controller
 {
     public function index(){
-    $categorias = Categoria::get();
+    $categorias = Categoria::all();
     
     return view('modulos.categorias', [
         'categorias' => $categorias  
@@ -18,6 +18,15 @@ class CategoriasController extends Controller
     public function create() {
         return view('modulos.categorias');
     }
+
+    public function show(){
+        $categorias = Categoria::get();
+
+        return view('modulos.categorias',[
+            'categorias' => $categorias
+        ]);
+    }
+
 
     public function store(Request $request){
 

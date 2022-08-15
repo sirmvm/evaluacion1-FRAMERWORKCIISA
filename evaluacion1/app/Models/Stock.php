@@ -11,8 +11,8 @@ class Stock extends Model
     protected $primaryKey = 'id';
     protected $table = 'stocks';
 
-    public function categoria(){
-        return $this->belongsTo(Sucursale::class, 'sucursale_id');
+    public function sucursal(){
+        return $this->belongsTo(Sucursal::class, 'sucursal_id');
     }
 
     public function producto(){

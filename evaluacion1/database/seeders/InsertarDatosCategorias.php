@@ -20,6 +20,15 @@ class InsertarDatosCategorias extends Seeder
             ],
             [
                 'nombre' => 'Tecnología'
+            ],
+            [
+                'nombre' => 'Tiempo libre'
+            ],
+            [
+                'nombre' => 'Automotriz'
+            ],
+            [
+                'nombre' => 'Miscelaneo'
             ]
             ));
 

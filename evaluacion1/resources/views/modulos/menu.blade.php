@@ -23,9 +23,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url('productoBuscado') }}">
+                <a href="{{ url('stocks') }}">
                     <i class="fa fa-shopping-cart"></i>
-                    <span>Buscar Producto</span>
+                    <span>Control de Stock</span>
                 </a>
             </li>
 

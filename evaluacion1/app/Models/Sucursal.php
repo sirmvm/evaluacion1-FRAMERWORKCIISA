@@ -9,7 +9,7 @@ class Sucursal extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    protected $table = 'sucursales';
+    protected $table = 'sucursals';
 
     public function stocks(){
         return $this->hasMany(Stock::class);

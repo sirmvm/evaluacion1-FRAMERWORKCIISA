@@ -5,7 +5,7 @@
 
     <div class="content-wrapper">
                 <section class="content-header">
-            <h1>Gestor de Productos</h1>
+            <h1>Gestor de Stocks</h1>
         </section>
         <section class="content">
         <div class="box">
@@ -18,20 +18,28 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Código producto</th>
                             <th>Nombre</th>
                             <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Precio venta</th>
+                            <th>Sucursal</th>
                             <th>Descripción</th>
                             <th>Edicion</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($productos as $producto)
+                    @foreach($stocks as $stock)
                         <tr>
-                            <td>{{ $producto -> id}}</td>
-                            <td>{{ $producto -> nombre_producto }}</td>
-                            <td>{{ $producto -> categoria -> nombre }}</td>
-                            <td>{{ $producto -> descripcion }}</td>
+                            <td>{{ $stock -> id}}</td>
+                            <td>{{ $stock -> codigo_producto }}</td>
+                            <td>{{ $stock -> producto -> nombre_producto }}</td>
+                            <td>{{ $stock -> producto -> categoria -> nombre }}</td>
+                            <td>{{ $stock -> cantidad }}</td>
+                            <td>{{ $stock -> precio }}</td>
+                            <td>{{ $stock -> sucursal -> nombre_sucursal }}</td>
+                            <td>{{ $stock -> producto -> descripcion }}</td>
                             <td>
                                 <button class="btn btn-success" data-toggle="modal" data-target="#EditarProductos">
                                     <i class="fa fa-pencil"></i>
@@ -52,28 +60,41 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="POST" action="">
-                    
-                    @csrf
                     <div class="modal-body">
-                        <div class="box-body">                            
+                        <div class="box-body">
                             <div class="form-group">
-                                <h4>Nombre</h4>
-                                <input type="text" class="form-control input-md" name="nombre_producto" id="nombre_producto" required="">                  
-                            </div>
-
-                            <div class="form-group">
-                                <h4>Descripción</h4>
-                                <input type="text" class="form-control input-md" name="descripcion" id="descripcion">
-                            </div>
-
-                            <div class="form-group">
-                                <h4>Categoría</h4>
-                                <select name="categoria_id" class="form-control input-lg" name="categoria_id" id="categoria_id" require="">
+                                <h4>Producto:</h4>
+                                <select name="producto_id" class="form-control input-lg" id="producto_id" require="">
                                 <option value=""> Seleccionar... </option>                                
-                                @foreach($categorias as $categoria)                                
-                                    <option value="{{ $categoria -> id }}">{{  $categoria -> nombre }}</option>                                
+                                @foreach($productos as $producto)                                
+                                    <option value="{{  $producto -> id }}">{{  $producto -> nombre_producto }}</option>                                
                                 @endforeach
                                 </select>       
+                            </div>
+
+                            <div class="form-group">
+                                <h4>Código producto:</h4>
+                                <input type="text" class="form-control input-md" name="codigo_producto" id="codigo_producto" required="">                                
+                            </div>             
+
+                            <div class="form-group">
+                                <h4>Cantidad:</h4>
+                                <input type="number" class="form-control input-md" name="cantidad" id="cantidad" required="">                  
+                            </div>
+
+                            <div class="form-group">
+                                <h4>Precio</h4>
+                                <input type="number" class="form-control input-md" name="precio" id="precio" required="">                  
+                            </div>
+
+                            <div class="form-group">
+                                <h4>Sucursal:</h4>
+                                <select name="sucursal_id" class="form-control input-lg" id="sucursal_id" name="sucursal_id" require="">
+                                <option value=""> Seleccionar... </option>                                
+                                @foreach($sucursales as $sucursal)                           
+                                    <option value="{{ $sucursal -> id  }}">{{ $sucursal -> nombre_sucursal  }}</option>                                
+                                @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

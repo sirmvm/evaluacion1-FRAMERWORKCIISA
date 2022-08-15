@@ -15,11 +15,11 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo_producto');
+            $table->string('codigo_producto', 10);
             $table->integer('cantidad');
             $table->integer('precio');   
-            $table->foreignId('sucursale_id')->references("id")->on('sucursales');
-            $table->foreignId('producto_id')->references("id")->on('productos');
+            $table->foreignId('sucursal_id')->constrained();
+            $table->foreignId('producto_id')->constrained();
             $table->timestamps();
         });
     }
