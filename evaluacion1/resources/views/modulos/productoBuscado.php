@@ -4,6 +4,9 @@
 @section('content')
 
   <div align="center"> 
+    <?php
+      $nombreBusquedaProducto = strtolower($_REQUEST['nombreBusquedaProducto']);
+    ?>
     <h1>Ingrese el Nombre o Codigo del Producto que desea Buscar</h1>
     <form  action="productoBuscado.php" method="get" class="form_search">
       <div class="form-group">
@@ -21,7 +24,6 @@
   <div align="center"> 
     <?php
     if(isset($_GET['submit'])) {
-      $nombreBusquedaProducto = $_GET['nombreBusquedaProducto'];
       $sql_nombre = mysqli_query($conection,"SELECT * FROM productos WHERE (nombre_producto LIKE '%$nombreBusquedaProducto'");
 
       $sql_codigo = mysqli_query($conection,"SELECT * FROM stocks WHERE (codigo_producto LIKE '%$nombreBusquedaProducto'");
@@ -56,12 +58,7 @@
 
       }
 
-
-
-
-
     }
  
   </div>
-
 @stop
