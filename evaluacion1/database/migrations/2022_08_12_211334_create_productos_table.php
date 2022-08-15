@@ -19,8 +19,8 @@ class CreateProductosTable extends Migration
             $table->string('categoria', 100);        
             $table->string('sucursal', 100);        
             $table->string('descripcion', 100);        
-            $table->integer('cantidad', 100);        
-            $table->integer('precio', 100);        
+            $table->integer('cantidad');        
+            $table->integer('precio');        
             $table->foreignId('categoria_id')->references("id")->on('categorias');              
             $table->timestamps();
         });
