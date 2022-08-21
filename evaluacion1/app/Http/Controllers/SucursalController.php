@@ -19,7 +19,7 @@ class SucursalController extends Controller
         $sucursals = Sucursal::get();
 
         return view('modulos.sucursales',[
-            'sucursales' => $sucursales
+            'sucursales' => $sucursals
         ]);
     }
 

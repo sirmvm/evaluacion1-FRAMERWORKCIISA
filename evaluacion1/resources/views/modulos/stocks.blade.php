@@ -4,14 +4,31 @@
 @section('content')
 
     <div class="content-wrapper">
-                <section class="content-header">
+        <section class="content-header">
             <h1>Gestor de Stocks</h1>
+            
         </section>
+
+
+
         <section class="content">
         <div class="box">
             <div class="box-header">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#CrearProducto" >Ingresar nuevo producto</button>
             </div>
+            <nav class="navbar navbar-dark float-right box-header">
+                    <form class="form-inline" role="search">
+                        
+                        <input name="buscarPorCodigo" class="form-control" type="search" placeholder="Buscar por código" aria-label="Search" required="">
+
+                        <input name="buscarPorNombre" class="form-control" type="search" placeholder="Buscar por nombre " aria-label="Search" required="">
+                        
+                        <input name="buscarPorSucursal" class="form-control" type="search" placeholder="Buscar por sucursal" aria-label="Search">
+
+                        <button class="btn btn-success" type="submit">Buscar</button> 
+                    </form>
+            </nav>
+
 
             <div class="box-body">
                 <table class="table table-bordered table-hover table-striped">

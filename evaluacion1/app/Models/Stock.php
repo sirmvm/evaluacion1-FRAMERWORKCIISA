@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Producto;
+use App\Models\Sucursal;
 
 class Stock extends Model
 {
@@ -18,4 +20,7 @@ class Stock extends Model
     public function producto(){
         return $this->belongsTo(Producto::class, 'producto_id');
     }
+
 }
+
+

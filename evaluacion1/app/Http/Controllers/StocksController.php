@@ -11,19 +11,25 @@ use Illuminate\Http\Request;
 class StocksController extends Controller
 {
     public function index (Request $request){
-        $productos = Producto::all();
-        $sucursales = Sucursal::all();
-        $categorias = Categoria::all();
-        $stocks = Stock::all();
+
+        $codigo = trim($request -> get('buscarPorCodigo'));
+        $name = trim($request -> get('buscarPorNombre'));
+        $sucur = trim($request -> get('buscarPorSucursal'));
         
+        $stocks = Stock::where('codigo_producto', 'like', "%$codigo%" )->paginate(10);
+        $productos = Producto::where('nombre_producto', 'like', "%$name%" )->paginate(10);
+        $sucursales = Sucursal::where('nombre_sucursal', 'like', "%$sucur%" )->paginate(10);
+        //$categorias = Categoria::get();
+        
+       return view('modulos.stocks', [
+        'stocks' => $stocks,
+        'productos' => $productos,
+        'sucursales' => $sucursales,
+        //'categorias' => $categorias
+        
+       ]);
 
-       return view('modulos.stocks',[
-            'stocks' => $stocks,
-            'categorias' => $categorias,
-            'sucursales' => $sucursales,
-            'productos' => $productos
-
-        ]);
+       
     }
 
     public function show(){
