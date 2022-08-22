@@ -3,6 +3,12 @@
     <section class="sidebar">
 
         <ul class="sidebar-menu">
+            <li>
+            <a href="{{ url('buscador') }}">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Buscador</span>
+                </a>
+            </li>
 
             <li>
             <a href="{{ url('categorias') }}">
