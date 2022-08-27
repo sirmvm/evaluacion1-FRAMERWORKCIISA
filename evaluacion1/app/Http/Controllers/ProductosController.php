@@ -63,5 +63,43 @@ class ProductosController extends Controller
             'productos' => $productos
         ]);
     }
+
+    public function delete ($id){
+        $producto = Producto::where('id',$id)->get();
+
+        if(\Storage::disk('images')->has($producto[0]->image)){
+           \Storage::disk('images')->delete($producto[0]->image);
+        }
+
+      $personajeEliminar = Personaje::find($id);
+      $personajeEliminar->delete();
+
+      $categoria = Categoria::where('id', $categoria_id)->get();
+
+      $productos = Producto::where('categoria_id', $categoria_id)->get();
+
+      return view('modulos.productos',[
+        'categorias' => $categorias,
+        'productos' => $productos
+    ]);
+
+
+    }
+
+    public function update ($id){
+        $producto=Producto::where('id',$id)->get();
+        $categoria=Categoria::get();
+
+        return view('modulos.productos',[
+            'categorias' => $categorias,
+            'productos' => $productos
+        ]);
+
+
+
+
+
+
+    }
 }
 

@@ -33,12 +33,12 @@
                             <td>{{ $producto -> categoria -> nombre }}</td>
                             <td>{{ $producto -> descripcion }}</td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#EditarProductos">
+                                <a href='/updateProducto/{{ $producto->id}}' class="btn btn-success" data-toggle="modal" data-target="#updateProducto">
                                     <i class="fa fa-pencil"></i>
-                                </button>
-                                <button class="btn btn-danger Eliminar">
+                                </a>
+                                <a href='/deleteProducto/{{ $producto->id}}' class="btn btn-danger Eliminar">
                                 <i class="fa fa-trash"></i>
-                                </button>
+                            </a>
                             </td>
                         </tr>
                     @endforeach
@@ -88,26 +88,36 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="EditarProducto" >
+    <div action='/producto' class="modal fade" enctype='multipart/form-data' id="updateProducto" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="POST">
+                @csrf
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
                                 <h4>Nombre</h4>
-                                <input type="text" class="form-control input-md" name="modelo" required="">                                
+                                <input type="text" class="form-control input-md" name="nombre_producto" required="" value="{{ $producto -> nombre_producto }}">                                
                             </div>
 
                             <div class="form-group">
-                                <h4>Precio venta</h4>
+                                <h4>Descripción</h4>
                                 <input type="number" class="form-control input-md" name="precio-venta" required="">                                
                             </div>
 
-                            
+   
                             <div class="form-group">
-                                <h4>Descripción</h4>
-                                <input type="text" class="form-control input-md" name="descripcion" required="">                                
+                                <<h4>Categoría</h4>
+                                <select name="categoria_id" class="form-control input-lg" name="categoria_id" id="categoria_id" require="">
+                                <option value=""> Seleccionar... </option>                                
+                                @foreach($categorias as $categoria)   
+                                @if($categoria->id == $producto[0]->categoria_id)                             
+                                    <option value="{{ $categoria -> id }}" selected>{{  $categoria -> nombre }}</option> 
+                                    @else
+                                    <option value="{{ $categoria -> id }}">{{  $categoria -> nombre }}</option> 
+                                    @endif
+                                @endforeach
+                                </select>                                 
                             </div>
                         </div>
                     </div>
