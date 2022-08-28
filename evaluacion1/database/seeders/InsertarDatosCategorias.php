@@ -32,6 +32,6 @@ class InsertarDatosCategorias extends Seeder
             ]
             ));
 
-        $this->command->info('Datos Agrregados Correctamente');
+        $this->command->info('Datos Agregados Correctamente');
     }
 }

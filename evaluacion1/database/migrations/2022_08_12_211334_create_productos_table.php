@@ -18,6 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre_producto', 100);        
             $table->string('descripcion', 100);        
             $table->foreignId('categoria_id')->references("id")->on('categorias');              
+            $table ->text('image');
             $table->timestamps();
         });
     }
