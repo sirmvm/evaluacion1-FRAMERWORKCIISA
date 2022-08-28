@@ -7,6 +7,7 @@ use App\Models\Categoria;
 use App\Models\Sucursal;
 use App\Models\Stock;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductosController extends Controller
 {
@@ -46,8 +47,15 @@ class ProductosController extends Controller
         $this->validate($request,[
             'nombre_producto' => 'required',
             'descripcion' => 'required',
-            'categoria_id' => 'required'
+            'categoria_id' => 'required',
+            'image'=> 'required'
         ]);
+
+        $imagen = $request->file('imagen');
+        if ($imagen){
+            $imagen_path = time()."-".$imagen->getClientOriginalName();
+            \Storage::disk('images')->put($imagen_path, \File::get($imagen));
+        }
 
         $producto = new Producto();
         $producto -> nombre_producto = $request->nombre_producto;
@@ -62,6 +70,10 @@ class ProductosController extends Controller
             'categorias' => $categorias,
             'productos' => $productos
         ]);
+    }
+    public function getImagen($filename){
+        $file = \Storage::disk('images')->get($filename);
+        return new Response($file, 200);
     }
 
     public function delete ($id){
