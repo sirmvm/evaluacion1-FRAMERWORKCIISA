@@ -41,10 +41,10 @@
                                 @endif
                             </td>
                             <td>
-                                <a href='/updateProducto/{{ $producto->id}}' class="btn btn-success" data-toggle="modal" data-target="#updateProducto">
+                                <a href='/updateProductos/{{ $producto->id}}' class="btn btn-success"  data-target="#updateProductos">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <a href='/deleteProducto/{{ $producto->id}}' class="btn btn-danger Eliminar">
+                                <a href='deleteProductos/{{ $producto->id}}' class="btn btn-danger">
                                 <i class="fa fa-trash"></i>
                             </a>
                             </td>
@@ -96,7 +96,7 @@
             </div>
         </div>
     </div>
-    <div action='/producto' class="modal fade" enctype='multipart/form-data' id="updateProducto" >
+   <!-- <div action='/productos' class="modal fade" enctype='multipart/form-data' id="updateProductos" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="POST">
@@ -105,12 +105,12 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <h4>Nombre</h4>
-                                <input type="text" class="form-control input-md" name="nombre_producto" required="" value="{{ $producto -> nombre_producto }}">                                
+                                <input type="text" class="form-control input-md" name="nombre_producto" required="" value="{{ $productos[0] -> nombre_producto }}">                                
                             </div>
 
                             <div class="form-group">
                                 <h4>Descripción</h4>
-                                <input type="number" class="form-control input-md" name="precio-venta" required="">                                
+                                <input type="number" class="form-control input-md" name="descripcion" id="descripcion" required="" value="{{ $productos[0] -> descripcion }}">                                
                             </div>
 
    
@@ -131,5 +131,5 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>-->
 @stop

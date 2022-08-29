@@ -76,42 +76,67 @@ class ProductosController extends Controller
         return new Response($file, 200);
     }
 
+    
     public function delete ($id){
-        $producto = Producto::where('id',$id)->get();
+        $productos = Producto::where('id',$id)->get();
+        $categoria_id = $productos[00]->categoria_id;
+       // dd($productos);
 
-        if(\Storage::disk('images')->has($producto[0]->image)){
-           \Storage::disk('images')->delete($producto[0]->image);
-        }
+     if(\Storage::disk('images')->has($productos[0]->image)){
+          \Storage::disk('images')->delete($productos[0]->image);
+       }
 
-      $personajeEliminar = Personaje::find($id);
-      $personajeEliminar->delete();
-
-      $categoria = Categoria::where('id', $categoria_id)->get();
+      $productoEliminar = Producto::find($id);
+      $productoEliminar->delete();
+      
+     
+      $categorias = Categoria::where('id', $categoria_id)->get();
 
       $productos = Producto::where('categoria_id', $categoria_id)->get();
+      
 
-      return view('modulos.productos',[
-        'categorias' => $categorias,
+    /* return view('modulos.productos',[
+       'categorias' => $categorias,
         'productos' => $productos
-    ]);
+     ]);*/
 
 
     }
 
-    public function update ($id){
-        $producto=Producto::where('id',$id)->get();
-        $categoria=Categoria::get();
+    public function update($id){
+        $productos=Producto::where('id',$id)->get();
+        //dd($productos);
+        $categorias = Categoria::get();
+
+        return view('modulos.edit',[
+            'categorias' => $categorias,
+            'productos' => $productos
+
+        ]);
+
+    }
+
+    public function updateSave(Request $request){
+        $this->validate($request,[
+            'nombre_producto' =>'required',
+            'descipcion' =>'required'
+        ]);
+
+        Producto::where('id',$request->id)
+        ->update([
+            'nombre_producto' =>$request->nombre_producto,
+            'categoria_id' => $request->$request->input('categoria'),
+            'descripcion' =>$request->descripcion
+        ]);
+
+        $categotias = Categoria::get();
+
 
         return view('modulos.productos',[
             'categorias' => $categorias,
-            'productos' => $productos
+            
+
         ]);
-
-
-
-
-
-
     }
 }
 

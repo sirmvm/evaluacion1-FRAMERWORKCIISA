@@ -30,3 +30,7 @@ Route::resource('productos', 'App\Http\Controllers\ProductosController');
 Route::resource('sucursales', 'App\Http\Controllers\SucursalController');
 Route::resource('stocks', 'App\Http\Controllers\StocksController');
 Route::resource('buscador', 'App\Http\Controllers\BuscadorController');
+
+Route::get('deleteProductos/{id}', 'App\Http\Controllers\ProductosController@delete');
+Route::get('/updateProductos/{id}', 'App\Http\Controllers\ProductosController@update');
+Route::post('/updateProductos', 'App\Http\Controllers\ProductosController@updateSave');
