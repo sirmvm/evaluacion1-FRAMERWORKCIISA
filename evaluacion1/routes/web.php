@@ -24,6 +24,7 @@ Route::get('/', 'App\Http\Controllers\ProductosController@index');
 Route::get('/', 'App\Http\Controllers\SucursalController@index');
 Route::get('/', 'App\Http\Controllers\StocksController@index');
 Route::get('/', 'App\Http\Controllers\BuscadorController@index');
+Route::get('/imagenes/{filename}', 'App\Http\Controllers\ProductosController@getImagen');
 Route::resource('categorias', 'App\Http\Controllers\CategoriasController');
 Route::resource('productos', 'App\Http\Controllers\ProductosController');
 Route::resource('sucursales', 'App\Http\Controllers\SucursalController');

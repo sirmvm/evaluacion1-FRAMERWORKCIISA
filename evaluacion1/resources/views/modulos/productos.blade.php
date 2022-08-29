@@ -21,6 +21,7 @@
                             <th>Nombre</th>
                             <th>Categoría</th>
                             <th>Descripción</th>
+                            <th>Imagen</th>
                             <th>Edicion</th>
                             <th></th>
                         </tr>
@@ -32,6 +33,13 @@
                             <td>{{ $producto -> nombre_producto }}</td>
                             <td>{{ $producto -> categoria -> nombre }}</td>
                             <td>{{ $producto -> descripcion }}</td>
+                            <td>
+                                @if(Storage::disk('images')->has($producto->image))
+                                <img src="{{ url('imagenes/'. $producto->image) }}" class="img-thumbnail" alt="..." width="50" height="50">
+                                @else
+                                <img src="{{$producto->image}}" class="img-thumbnail" alt="..." width="50" height="50">
+                                @endif
+                            </td>
                             <td>
                                 <a href='/updateProducto/{{ $producto->id}}' class="btn btn-success" data-toggle="modal" data-target="#updateProducto">
                                     <i class="fa fa-pencil"></i>
@@ -110,13 +118,8 @@
                                 <<h4>Categoría</h4>
                                 <select name="categoria_id" class="form-control input-lg" name="categoria_id" id="categoria_id" require="">
                                 <option value=""> Seleccionar... </option>                                
-                                @foreach($categorias as $categoria)   
-                                @if($categoria->id == $producto[0]->categoria_id)                             
-                                    <option value="{{ $categoria -> id }}" selected>{{  $categoria -> nombre }}</option> 
-                                    @else
-                                    <option value="{{ $categoria -> id }}">{{  $categoria -> nombre }}</option> 
-                                    @endif
-                                @endforeach
+                                 
+                                
                                 </select>                                 
                             </div>
                         </div>
